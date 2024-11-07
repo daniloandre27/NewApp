@@ -74,9 +74,12 @@ def main():
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
-                st.experimental_rerun()  # Força a atualização imediata para refletir o login
+                # Redireciona o fluxo para a atualização da interface
+                st.experimental_rerun()
             else:
                 st.error("Usuário ou senha incorretos.")
+                return  # Retorna para evitar o restante do código ao exibir o erro
+
     else:
         st.markdown("<h1 style='text-align: center;'>Bem-vindo vencedor!</h1>", unsafe_allow_html=True)
         

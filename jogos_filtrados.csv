@@ -1,0 +1,8 @@
+﻿id,league_id,league,utc_time,date,time,home,away,ft_ml_h_opening,ft_ml_d_opening,ft_ml_a_opening,ft_ml_h_closing,ft_ml_d_closing,ft_ml_a_closing,ft_ah_handicap_opening,ft_ah_h_opening,ft_ah_a_opening,ft_ah_handicap_closing,ft_ah_h_closing,ft_ah_a_closing,ft_ou_handicap_opening,ft_ou_o_opening,ft_ou_u_opening,ft_ou_handicap_closing,ft_ou_o_closing,ft_ou_u_closing
+8335208,32373,Mexico Liga MX,1730948700,07/11/2024,00:05,Atlas,Cruz Azul,4.0,3.6,1.85,4.2,3.5,1.833,0.5,1.95,1.9,0.5,2.0,1.85,2.5,2.05,1.8,2.25,1.85,2.0
+8480487,318,England National League North,1730835900,05/11/2024,16:45,Marine,Chorley,5.0,3.7,1.615,3.1,3.3,2.15,0.75,1.975,1.825,0.25,1.9,1.9,2.25,1.8,2.0,2.25,1.825,1.975
+8753965,34541,UEFA Conference League,1731001500,07/11/2024,14:45,CS Petrocub,Rapid Vienna,6.5,4.6,1.444,10.0,6.0,1.25,1.25,1.85,2.0,1.75,1.875,1.975,2.75,1.9,1.95,3.0,1.975,1.875
+8754018,34541,UEFA Conference League,1731009600,07/11/2024,17:00,Apoel Nicosia,Fiorentina,4.5,3.5,1.8,5.0,3.6,1.7,0.5,2.025,1.825,0.75,1.9,1.95,2.5,1.925,1.925,2.5,1.975,1.875
+8754191,34541,UEFA Conference League,1731009600,07/11/2024,17:00,Larne FC,St Gallen,6.5,4.75,1.42,6.25,5.0,1.42,1.25,1.95,1.9,1.25,1.925,1.925,3.25,2.025,1.825,3.0,1.875,1.975
+9018268,84,Scotland Premier League Women,1730923200,06/11/2024,17:00,Aberdeen Women,Motherwell Women,4.5,5.5,1.4,4.5,5.5,1.4,1.25,1.9,1.9,1.25,1.9,1.9,4.0,1.8,2.0,4.0,1.8,2.0
+9046769,32373,Mexico Liga MX,1730854800,05/11/2024,22:00,Santos Laguna,Chivas Guadalajara,5.0,4.0,1.615,5.5,4.1,1.55,0.75,2.05,1.8,1.0,1.875,1.975,2.75,1.925,1.925,2.75,1.925,1.925

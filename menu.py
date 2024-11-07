@@ -65,7 +65,7 @@ def main():
     if 'usuario_atual' not in st.session_state:
         st.session_state['usuario_atual'] = None
 
-    # Tela de login
+    # Exibição da tela de login somente quando o usuário não está logado
     if not st.session_state['logado']:
         st.write("<h1 style='text-align: center;'>Bem-Vindo</h1>", unsafe_allow_html=True)
         usuario = st.text_input("Usuário")
@@ -78,7 +78,7 @@ def main():
             else:
                 st.error("Usuário ou senha incorretos.")
     
-    # Conteúdo exibido após login bem-sucedido
+    # Exibição da tela principal após o login
     if st.session_state['logado']:
         st.markdown("<h1 style='text-align: center;'>Bem-vindo vencedor!</h1>", unsafe_allow_html=True)
         
@@ -96,6 +96,7 @@ def main():
         elif escolha == "Resultados":
             st.write("Aqui estarão os resultados das análises (em desenvolvimento).")
 
+        # Cadastro de usuário
         if st.checkbox("Cadastro de usuários"):
             st.subheader("Cadastro de Usuários")
             novo_usuario = st.text_input("Novo usuário", key="novo_usuario")
@@ -103,6 +104,7 @@ def main():
             if st.button("Cadastrar"):
                 adicionar_usuario(novo_usuario, nova_senha_cadastro, st.session_state['usuario_atual'])
 
+        # Alteração de senha
         if st.checkbox("Alteração de senha"):
             st.subheader("Alterar Senha")
             senha_atual = st.text_input("Senha atual", key="senha_atual", type="password")
@@ -110,9 +112,11 @@ def main():
             if st.button("Alterar"):
                 alterar_senha(st.session_state['usuario_atual'], senha_atual, nova_senha_input)
 
+        # Logout
         if st.button("Sair"):
             st.session_state['logado'] = False
             st.session_state['usuario_atual'] = None
+            st.experimental_rerun()  # Recarrega para mostrar a tela de login novamente
 
 if __name__ == "__main__":
     main()

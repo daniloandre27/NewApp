@@ -60,7 +60,12 @@ def alterar_senha(usuario, senha_atual, nova_senha):
 st.set_page_config(page_title="Meu Dashboard", layout="centered")
 
 def main():
-    if 'logado' not in st.session_state or not st.session_state['logado']:
+    if 'logado' not in st.session_state:
+        st.session_state['logado'] = False
+    if 'usuario_atual' not in st.session_state:
+        st.session_state['usuario_atual'] = None
+
+    if not st.session_state['logado']:
         st.write("<h1 style='text-align: center;'>Bem-Vindo</h1>", unsafe_allow_html=True)
         usuario = st.text_input("Usuário")
         senha = st.text_input("Senha", type="password")
@@ -69,6 +74,7 @@ def main():
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
+                st.experimental_rerun()  # Força a atualização imediata para refletir o login
             else:
                 st.error("Usuário ou senha incorretos.")
     else:
@@ -104,6 +110,7 @@ def main():
 
         if st.button("Sair"):
             st.session_state['logado'] = False
+            st.experimental_rerun()  # Atualiza imediatamente após o logout
 
 if __name__ == "__main__":
     main()

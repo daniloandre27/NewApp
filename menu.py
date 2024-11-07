@@ -65,6 +65,7 @@ def main():
     if 'usuario_atual' not in st.session_state:
         st.session_state['usuario_atual'] = None
 
+    # Tela de login
     if not st.session_state['logado']:
         st.write("<h1 style='text-align: center;'>Bem-Vindo</h1>", unsafe_allow_html=True)
         usuario = st.text_input("Usuário")
@@ -74,9 +75,11 @@ def main():
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
+                st.experimental_rerun()  # Redireciona imediatamente após o login
             else:
                 st.error("Usuário ou senha incorretos.")
-
+    
+    # Conteúdo exibido após login bem-sucedido
     if st.session_state['logado']:
         st.markdown("<h1 style='text-align: center;'>Bem-vindo vencedor!</h1>", unsafe_allow_html=True)
         
@@ -110,6 +113,7 @@ def main():
 
         if st.button("Sair"):
             st.session_state['logado'] = False
+            st.experimental_rerun()  # Atualiza imediatamente após o logout
 
 if __name__ == "__main__":
     main()

@@ -75,7 +75,6 @@ def main():
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
-                st.experimental_rerun()  # Redireciona imediatamente após o login
             else:
                 st.error("Usuário ou senha incorretos.")
     
@@ -113,7 +112,7 @@ def main():
 
         if st.button("Sair"):
             st.session_state['logado'] = False
-            st.experimental_rerun()  # Atualiza imediatamente após o logout
+            st.session_state['usuario_atual'] = None
 
 if __name__ == "__main__":
     main()

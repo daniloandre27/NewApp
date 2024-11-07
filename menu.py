@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 import csv
 from tela1 import show_tela1
 
@@ -65,7 +64,7 @@ def main():
     if 'usuario_atual' not in st.session_state:
         st.session_state['usuario_atual'] = None
 
-    # Exibição da tela de login somente quando o usuário não está logado
+    # Tela de Login
     if not st.session_state['logado']:
         st.write("<h1 style='text-align: center;'>Bem-Vindo</h1>", unsafe_allow_html=True)
         usuario = st.text_input("Usuário")
@@ -75,11 +74,12 @@ def main():
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
+                st.experimental_rerun()  # Recarrega a página para mostrar a tela principal
             else:
                 st.error("Usuário ou senha incorretos.")
     
-    # Exibição da tela principal após o login
-    if st.session_state['logado']:
+    # Tela Principal
+    else:
         st.markdown("<h1 style='text-align: center;'>Bem-vindo vencedor!</h1>", unsafe_allow_html=True)
         
         # Menu de navegação

@@ -60,17 +60,22 @@ def alterar_senha(usuario, senha_atual, nova_senha):
 st.set_page_config(page_title="Meu Dashboard", layout="centered")
 
 def main():
-    if 'logado' not in st.session_state or not st.session_state['logado']:
+    if 'logado' not in st.session_state:
+        st.session_state['logado'] = False
+
+    if not st.session_state['logado']:
         st.write("<h1 style='text-align: center;'>Bem-Vindo</h1>", unsafe_allow_html=True)
         usuario = st.text_input("Usuário")
         senha = st.text_input("Senha", type="password")
         
-        if st.button("Login"):
+        if st.button("Login", disabled=st.session_state.get('processing', False)):
+            st.session_state['processing'] = True
             if verificar_login(usuario, senha):
                 st.session_state['logado'] = True
                 st.session_state['usuario_atual'] = usuario
             else:
                 st.error("Usuário ou senha incorretos.")
+            st.session_state['processing'] = False
     else:
         st.markdown("<h1 style='text-align: center;'>Bem-vindo vencedor!</h1>", unsafe_allow_html=True)
         
@@ -107,6 +112,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 st.write(
     "<h1 style='text-align: center; font-size: 15px;'>Quer participar? Chama o Altair<br>Zap: (22)98802-4908</h1>",
